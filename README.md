@@ -1,8 +1,8 @@
 # My Hometown - Bontoc
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3) ![Static Site](https://img.shields.io/badge/Type-Static%20Website-0A66C2?style=for-the-badge)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3) ![Static Site](https://img.shields.io/badge/Static-Site-4CAF50?style=for-the-badge)
 
-A modern static tourism website that celebrates the beauty, culture, and attractions of Bontoc, Southern Leyte, Philippines. This project is designed as a welcoming hometown showcase with a clean layout, scenic imagery, and destination highlights.
+A modern static tourism website that celebrates the beauty, culture, and attractions of Bontoc, Southern Leyte, Philippines. This project is designed as a welcoming hometown showcase with a clean layout and engaging destination highlights.
 
 ## Description
 
@@ -10,8 +10,8 @@ My Hometown - Bontoc is a front-end website that introduces visitors to the muni
 
 ## Live URL
 
-- Local preview: [http://localhost:8000](https://github.com/gingrbr3ad/Hometown---WebPage)
-- Deployed site: Add your GitHub Pages or hosting URL here
+- Local preview: http://localhost:8000
+- Deployed site: https://gingrbr3ad.github.io/Hometown---WebPage/
 
 ## Features
 
