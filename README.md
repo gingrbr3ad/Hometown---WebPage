@@ -10,7 +10,7 @@ My Hometown - Bontoc is a front-end website that introduces visitors to the muni
 
 ## Live URL
 
-- Local preview: http://localhost:8000
+- Local preview: [http://localhost:8000](https://github.com/gingrbr3ad/Hometown---WebPage)
 - Deployed site: Add your GitHub Pages or hosting URL here
 
 ## Features
