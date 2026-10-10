@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE TAG - ngalan sa page nga makita sa browser tab -->
+    <title>My Hometown - Bontoc</title>
+
+    <!-- FAVICON - gamay nga icon nga makita sa tab -->
+    <link rel="icon" href="favicon.jpg" type="image/x-icon" sizes="16x16">
+
+    <style>
+        :root {
+            --forest: #071d33;
+            --forest-2: #123d5b;
+            --coffee: #1e5f94;
+            --coffee-2: #3a82c7;
+            --ink: #102b42;
+            --muted: #5b7893;
+            --white: #ffffff;
+            --line: #d7e2ee;
+            --cream: #edf5fb;
+            --gold: #9ccaf1;
+            --shadow: 0 18px 45px rgba(7, 29, 51, 0.14);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255,255,255,.95), transparent 34%),
+                var(--cream);
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 30px;
+            min-height: 78px;
+            padding: 0 32px;
+            background: rgba(225, 230, 224, 0.9);
+            border-bottom: 1px solid rgba(46, 68, 54, 0.10);
+            box-shadow: 0 3px 12px rgba(46, 68, 54, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: auto;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 46px;
+            height: 46px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: var(--white);
+        }
+
+        .nav-logo span {
+            color: var(--forest);
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            position: relative;
+            color: #3b4a3b;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 15px;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 2px;
+            height: 2px;
+            border-radius: 10px;
+            background: var(--coffee-2);
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--coffee-2);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        header#home {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            min-height: 610px;
+            overflow: hidden;
+            color: var(--white);
+            background:
+                linear-gradient(90deg, rgba(17, 34, 24, .86), rgba(17, 34, 24, .34)),
+                url("cover.jpg") center / cover no-repeat;
+            background-color: var(--forest);
+        }
+
+        header#home::after {
+            content: "";
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            right: -160px;
+            top: -220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+            z-index: -1;
+        }
+
+        .cover-gif {
+            position: absolute;
+            left: 32px;
+            bottom: 24px;
+            z-index: 2;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 7vw;
+        }
+
+        .hero-copy {
+            max-width: 680px;
+            text-align: center;
+            margin: 0 auto;
+            animation: rise-in 0.7s ease both;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto 18px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,.30);
+            border-radius: 999px;
+            background: rgba(255,255,255,.10);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .hero-copy h1 {
+            margin: 0 auto 18px;
+            max-width: 650px;
+            font-size: clamp(42px, 7vw, 66px);
+            line-height: .98;
+            letter-spacing: -.03em;
+            text-transform: uppercase;
+            text-shadow: 0 8px 26px rgba(0,0,0,.28);
+        }
+
+        .hero-copy h2 {
+            margin: 0 auto 18px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #e9e2c8;
+        }
+
+        .hero-copy p {
+            max-width: 560px;
+            margin: 0 auto 26px;
+            color: #efeadb;
+            font-size: 16px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-actions .primary {
+            color: var(--forest);
+            background: var(--white);
+            box-shadow: 0 10px 24px rgba(0,0,0,.14);
+        }
+
+        .hero-actions .primary:hover {
+            background: #f3ecd8;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0,0,0,.24);
+        }
+
+        section {
+            position: relative;
+            max-width: 1120px;
+            margin: 28px auto;
+            padding: 34px;
+            background: rgba(255,255,255,.96);
+            border: 1px solid rgba(46,68,54,.07);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            right: -48px;
+            top: -48px;
+            border-radius: 50%;
+            background: rgba(199,154,69,.10);
+            pointer-events: none;
+        }
+
+        section h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--forest);
+            font-size: clamp(25px, 3vw, 34px);
+            letter-spacing: -.02em;
+        }
+
+        section h3 { color: var(--coffee-2); }
+        section h4 { color: var(--forest-2); }
+        section h5 { color: var(--gold); }
+        section h6 { color: var(--muted); }
+
+        section hr {
+            border: 0;
+            border-top: 1px solid var(--line);
+            margin: 26px 0;
+        }
+
+        .hero-img {
+            display: block;
+            width: 100%;
+            max-width: 820px;
+            height: auto;
+            max-height: 420px;
+            object-fit: cover;
+            margin: 18px auto;
+            border: 0;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(46,68,54,.14);
+        }
+
+        .places {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(170px, 1fr));
+            gap: 15px;
+        }
+
+        .place {
+            display: flex;
+            flex-direction: column;
+            min-height: 360px;
+            padding: 14px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: linear-gradient(180deg, #ffffff, #fbf7ec);
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 8px 20px rgba(46,68,54,.06);
+        }
+
+        .place:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(46,68,54,.12);
+        }
+
+        .place h3 {
+            margin-top: 0;
+            font-size: 17px;
+            line-height: 1.3;
+        }
+
+        .place h3 a {
+            color: var(--forest);
+            text-decoration: none;
+        }
+
+        .place h3 a:hover {
+            color: var(--coffee-2);
+            text-decoration: none;
+        }
+
+        .place p {
+            flex: 1;
+            color: #5c6e56;
+            font-size: 14px;
+        }
+
+        .place .hero-img {
+            width: 100%;
+            height: 150px;
+            margin: 0 0 16px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: none;
+            transition: transform 0.25s ease, filter 0.25s ease;
+        }
+
+        .place:hover .hero-img {
+            transform: scale(1.03);
+            filter: saturate(1.08);
+        }
+
+        .place blockquote {
+            margin: 10px 0;
+            padding: 12px 14px;
+            border-left: 3px solid var(--coffee-2);
+            border-radius: 0 14px 14px 0;
+            background: #faf6ea;
+            color: #5c6e56;
+            font-size: 13px;
+        }
+
+        .place a,
+        section a {
+            color: var(--coffee-2);
+            font-weight: 800;
+        }
+
+        .place a {
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .place a:hover,
+        section a:hover {
+            color: var(--coffee);
+            text-decoration: underline;
+        }
+
+        .place > a:last-child {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: rgba(156,106,60,.10);
+            text-decoration: none;
+        }
+
+        .map-container {
+            overflow: auto;
+            padding: 10px;
+            text-align: center;
+            background: #f5f7f1;
+            border-radius: 16px;
+        }
+
+        .map-container img {
+            width: min(100%, 620px);
+            height: auto;
+            margin: 0 auto;
+            border: 0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(46,68,54,.12);
+        }
+
+        /* --- Image-map wrapper + photo pins ------------------------------ */
+        .map-inner {
+            position: relative;
+            display: inline-block;
+            max-width: 620px;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .map-pin {
+            position: absolute;
+            transform: translate(-50%, -100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        .map-pin .pin-photo {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: 0 6px 14px rgba(7, 29, 51, 0.35);
+            background: var(--forest);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .map-pin .pin-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-pin::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            margin-top: -5px;
+            background: var(--white);
+            border-radius: 2px;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 8px rgba(7, 29, 51, 0.25);
+        }
+
+        .map-pin .pin-label {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--forest);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .map-pin:hover .pin-photo,
+        .map-pin:focus-visible .pin-photo {
+            transform: scale(1.14);
+            border-color: var(--gold);
+            box-shadow: 0 10px 22px rgba(7, 29, 51, 0.45);
+        }
+
+        .map-pin:hover .pin-label,
+        .map-pin:focus-visible .pin-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .map-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .map-shapes .shape {
+            fill: rgba(255, 255, 255, 0.14);
+            stroke-width: 3;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .map-shapes .shape-rect   { stroke: #ff5a5f; }
+        .map-shapes .shape-circle { stroke: #ffd24c; }
+        .map-shapes .shape-poly   { stroke: #4cd9ff; }
+
+        .map-shapes text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            fill: var(--white);
+            paint-order: stroke;
+            stroke: rgba(7, 29, 51, 0.85);
+            stroke-width: 3px;
+        }
+
+        .shape-key {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--muted);
+        }
+
+        .shape-key span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shape-key i {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            border-width: 3px;
+            border-style: solid;
+            background: rgba(255,255,255,.5);
+        }
+
+        .shape-key .k-rect   { border-color: #ff5a5f; }
+        .shape-key .k-circle { border-color: #ffd24c; border-radius: 50%; }
+        .shape-key .k-poly   { border-color: #4cd9ff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); background: rgba(255,255,255,.5); }
+
+        .map-legend {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            justify-content: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .map-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-legend img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--white);
+            box-shadow: 0 2px 6px rgba(7,29,51,.25);
+        }
+
+        pre {
+            overflow-x: auto;
+            margin: 0;
+            padding: 22px;
+            border: 2px solid var(--line);
+            border-radius: 16px;
+            background: #f5f2e4;
+            color: var(--forest);
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        blockquote {
+            margin: 22px 0;
+            padding: 18px 22px;
+            border-left: 3px solid var(--coffee-2);
+            border-radius: 0 14px 14px 0;
+            background: #faf6ea;
+            color: #5c6e56;
+        }
+
+        .gif {
+            width: 90px;
+            border-radius: 50%;
+        }
+
+        .picture-frame {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 18px auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(46,68,54,.14);
+        }
+
+        .picture-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .absolute-img-demo {
+            display: block;
+            margin: 16px 0;
+            border-radius: 14px;
+            box-shadow: 0 10px 22px rgba(46,68,54,.10);
+        }
+
+        address {
+            font-style: normal;
+            line-height: 1.8;
+            color: #5c6e56;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--forest), #1d3025);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer address {
+            color: #cfe0cf;
+            margin: 14px 0;
+        }
+
+        footer small {
+            color: #cfe0cf;
+        }
+
+        mark {
+            padding: 2px 5px;
+            border-radius: 5px;
+            background: #f1dfaf;
+            color: var(--forest);
+        }
+
+        @keyframes rise-in {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .places {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 8px 18px;
+                padding: 12px 20px;
+            }
+
+            .nav-logo {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 4px;
+            }
+
+            .nav-logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-logo span {
+                font-size: 16px;
+            }
+
+            nav a:not(.nav-logo) {
+                font-size: 12px;
+            }
+
+            header#home {
+                min-height: 560px;
+            }
+
+            .hero-body {
+                padding: 40px 22px;
+            }
+
+            .hero-copy h1 {
+                font-size: 40px;
+            }
+
+            .hero-copy h2 {
+                font-size: 16px;
+            }
+
+            .hero-copy p {
+                font-size: 14px;
+            }
+
+            section {
+                margin: 18px 14px;
+                padding: 24px 20px;
+                border-radius: 18px;
+            }
+
+            .places {
+                grid-template-columns: 1fr;
+            }
+
+            .place {
+                min-height: 0;
+            }
+
+            .map-pin .pin-photo {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV - target="_self" kay dili mag-abli og bag-ong tab, mo-jump ra sa section -->
+    <nav>
+        <a href="#home" class="nav-logo" title="Go to Home">
+            <img src="logo.png" alt="Bontoc Official Seal">
+            <span>BONTOC</span>
+        </a>
+
+        <a href="#home" target="_self" title="Go to Home">Home</a>
+        <a href="#about" target="_self" title="About Bontoc">About</a>
+        <a href="#tourist-spots" target="_self" title="Tourist Spots">Tourist Spots</a>
+        <a href="#map-section" target="_self" title="View Bontoc Map">Map</a>
+        <a href="#contact" target="_self" title="Contact Information">Contact</a>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home">
+        <!-- ANIMATED GIF - naga-move nga hulagway -->
+        <img src="dancing cat.gif" alt="Decorative animated cat" class="cover-gif" />
+
+        <div class="hero-body">
+            <div class="hero-copy">
+                <span class="eyebrow">Discover Bontoc!</span>
+
+                <h1>Welcome to My Hometown</h1>
+                <h2>Bontoc, Southern Leyte, Philippines</h2>
+
+                <p title="Welcome Header">
+                    Welcome to <strong>Bontoc</strong>, a nature-rich town known for its scenic overlooks,
+                    waterfalls, riverside walks, and local coffee culture.
+                </p>
+                <div class="hero-actions">
+                    <a class="primary" href="#tourist-spots" title="Explore Bontoc tourist spots">Explore Places</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <!-- H1 hangtod H6 - lain-laing lebel sa heading -->
+        <h1>Municipality of Bontoc</h1>
+        <h3>Nature, Adventure, and Coffee Spots</h3>
+        <h4>Visitor Information &amp; Guides</h4>
+        <h5>Local Community Standards</h5>
+        <h6>Official Hometown Project Document</h6>
+
+        <!-- HR - linya nga nagbulag sa matag bahin -->
+        <hr>
+
+        <!-- P nga naay TITLE attribute - naay tooltip pag-hover -->
+        <p title="Bontoc Tourism Intro">
+            Welcome to Bontoc! Whether you want to explore nature or relax with local coffee, check out our
+            <!-- A ABSOLUTE URL, target="_blank" - moabli og bag-ong tab -->
+            <a href="https://southernleyte.gov.ph/bontoc/bontoc-tourism/" target="_blank" title="Philippine Tourism Site">Official Tourism Portal (Absolute URL)</a>
+            or view our internal
+            <!-- A RELATIVE URL, target="_self" - sa mismo tab ra mo-abli -->
+            <a href="http://127.0.0.1:5500/index.html#contact" target="_self" title="Local Directory">Local Contact Page (Relative URL)</a>.
+        </p>
+
+        <!-- BR - pag-break sa linya -->
+        Line 1: Experience the breathtaking views of Bontoc.<br>
+        Line 2: Enjoy nature trails, fresh river views, and organic farm dining.
+
+        <hr>
+
+        <!-- PRE - nagpreserve sa spacing/format sa text -->
+        <pre>
+Bontoc Tourism Slogan:
+"Where Nature Meets Tranquility
+    and Warm Hospitality."
+        </pre>
+
+        <hr>
+
+        <!-- B - bold nga text -->
+        <p><b>Welcome to Bontoc! &lt;b&gt;.</b></p>
+        <!-- STRONG - importante/bold nga text -->
+        <p><strong>Bontoc is a must-visit destination in Southern Leyte (using &lt;strong&gt;).</strong></p>
+        <!-- I - italic nga text -->
+        <p><i>Enjoy scenic views and cool breeze (using &lt;i&gt;).</i></p>
+        <!-- EM - gipasiugda nga text (italic) -->
+        <p><em>Always keep our eco-tourism spots clean (using &lt;em&gt;).</em></p>
+        <!-- MARK - naay highlight -->
+        <p><mark>Special Discount: Free entry on local festival days (&lt;mark&gt;).</mark></p>
+        <!-- SMALL - gamay nga text -->
+        <p><small>Note: Environmental fees may apply at select spots (&lt;small&gt;).</small></p>
+        <!-- DEL/INS - daan nga presyo gi-cross out, bag-ong presyo gi-butang -->
+        <p>Old entry fee: <del>PHP 50</del> <ins>PHP 30</ins> (using &lt;del&gt; and &lt;ins&gt;).</p>
+        <!-- SUP - taas nga gamay nga letra (superscript) -->
+        <p>Bontoc Rank: 1<sup>st</sup> Top eco-spot in the area (using &lt;sup&gt;).</p>
+        <!-- SUB - ubos nga gamay nga letra (subscript) -->
+        <p>River Water Formula: H<sub>2</sub>O (using &lt;sub&gt;).</p>
+
+        <hr>
+
+    </section>
+
+    <!-- TOURIST SPOTS -->
+    <section id="tourist-spots">
+        <h2>Tourist Spots in Bontoc</h2>
+        <p>Here are the top 5 destinations to explore around Bontoc.</p>
+
+        <!-- IMAGE AS LINK - ang hulagway mismo clickable na, naay <a> nga naglibot -->
+        <!-- BLOCKQUOTE - dako nga quote gikan sa mga bisita -->
+        <!-- Q - gamay nga quote sa sulod sa sentence -->
+        <!-- CITE - pakisayran/source sa travel guide -->
+        <!-- ABBR - abbreviation nga naay tooltip pag-hover -->
+        <div class="places">
+
+            <div class="place" id="tops">
+                <a href="tops.html"><img src="tops3.jpg" alt="TOPS View" width="300" height="150" class="hero-img"></a>
+                <h3><a href="tops.html">🌄 TOPS (Bontoc Overlook Point)</a></h3>
+                <blockquote>
+                    "TOPS offers an incredible panoramic view of Bontoc and the surrounding landscapes,
+                    making it a favorite spot for sunrise and sunset views."
+                </blockquote>
+                <p>Visitors describe TOPS as <q>the ultimate scenic overlook in town.</q></p>
+
+                <a href="https://www.google.com/maps/search/TOPS+Bontoc+Overlook+Point,+Bontoc,+Southern+Leyte"
+                   target="_blank"
+                   title="Search TOPS Bontoc Overlook Point">
+                    Search on Google Maps
+                </a>
+            </div>
+
+            <div class="place" id="alejos">
+                <a href="alejos.html"><img src="alejos.jpg" alt="Alejos Falls" width="300" height="150" class="hero-img"></a>
+                <h3><a href="alejos.html">💦 Alejos Falls</a></h3>
+                <p>Relax by the cascading waters of Alejos Falls. Read more in
+                <cite>The Natural Wonders of Bontoc</cite> travel guide.</p>
+
+                <a href="https://www.google.com/maps/search/Alejos+Falls,+Bontoc,+Southern+Leyte"
+                   target="_blank"
+                   title="Search Alejos Falls">
+                    Search on Google Maps
+                </a>
+            </div>
+
+            <div class="place" id="dike">
+                <a href="dike.html"><img src="dike1.jpg" alt="Bontoc Dike" width="300" height="150" class="hero-img"></a>
+                <h3><a href="dike.html">🌊 Bontoc Dike</a></h3>
+                <p>A peaceful riverfront spot perfect for afternoon walks, jogging, and hanging out with friends by the water.</p>
+
+                <a href="https://www.google.com/maps/search/Bontoc+Dike,+Bontoc,+Southern+Leyte"
+                   target="_blank"
+                   title="Search Bontoc Dike">
+                    Search on Google Maps
+                </a>
+            </div>
+
+            <div class="place" id="nesspresso">
+                <a href="nesspresso.html"><img src="nesspresso3.jpg" alt="Ness Presso Cafe" width="300" height="150" class="hero-img"></a>
+                <h3><a href="nesspresso.html">☕ Ness Presso</a></h3>
+                <p>Visit the local coffee hub, <abbr title="Ness Presso Cafe">NPC</abbr>, for fresh brews and a cozy atmosphere.</p>
+
+                <a href="https://www.google.com/maps/search/Ness+Presso,+Bontoc,+Southern+Leyte"
+                   target="_blank"
+                   title="Search Ness Presso">
+                    Search on Google Maps
+                </a>
+            </div>
+
+            <div class="place" id="farm">
+                <a href="farm.html"><img src="farmfinity.jpg" alt="Farmfinity Resort" width="300" height="150" class="hero-img"></a>
+                <h3><a href="farm.html">🌾 Farmfinity Resort</a></h3>
+                <p>An agritourism resort in Santa Cruz, Bontoc showcasing sustainable agricultural practices, organic produce, and family-friendly activities.</p>
+
+                <a href="https://www.google.com/maps/search/Farmfinity+Resort,+Santa+Cruz,+Bontoc,+Southern+Leyte"
+                   target="_blank"
+                   title="Search Farmfinity Resort">
+                    Search on Google Maps
+                </a>
+            </div>
+
+        </div>
+
+        <br>
+
+        <!-- A ABSOLUTE URL target="_blank" / A RELATIVE URL target="_self" -->
+        <p style="margin-top:20px;">
+            <a href="https://www.google.com/maps" target="_blank" title="Google Maps Link">Open Maps in New Tab (_blank)</a><br>
+            <a href="index.html" target="_self" title="Reload Page">Reload Current Page (_self)</a>
+        </p>
+    </section>
+
+    <!-- MAP -->
+    <section id="map-section">
+        <h2>Interactive Map of Bontoc Tourist Spots</h2>
+        <p><strong>Click a red-dashed area on the map, or one of the photo pins, to visit each destination.</strong></p>
+
+        <div class="map-container">
+            <!-- Image map base: rect, circle and poly shapes, each paired with a photo pin -->
+            <div class="map-inner">
+                <img src="bontoc_map.jpg" usemap="#image-map" alt="Bontoc Tourist Map" width="628" height="755">
+
+                <!-- IMAGE MAP - clickable nga mga bahin sa hulagway -->
+                <map name="image-map">
+                    <!-- RECT SHAPE -->
+                    <area target="_self" alt="Alejos Falls" title="Alejos Falls" href="alejos.html" coords="261,520,339,565" shape="rect">
+                    <!-- CIRCLE SHAPE -->
+                    <area target="_blank" alt="TOPS Overlook" title="TOPS Overlook" href="tops.html" coords="520,281,20" shape="circle">
+                    <!-- POLY SHAPE -->
+                    <area target="_self" alt="Farmfinity Resort" title="Farmfinity Resort" href="farm.html" coords="511,89,557,103,517,129" shape="poly">
+                    <!-- CIRCLE SHAPE -->
+                    <area target="_blank" alt="Bontoc Dike" title="Bontoc Dike" href="dike.html" coords="590,246,16" shape="circle">
+                    <!-- CIRCLE SHAPE -->
+                    <area target="_self" alt="Ness Presso" title="Ness Presso" href="nesspresso.html" coords="579,276,12" shape="circle">
+                </map>
+
+                <!-- Visible shape overlay: draws the same rect / circle / poly coordinates used
+                     by the <area> tags above, so the three required shape types are visible on
+                     the map itself (not just invisible click zones). Scales with the image via
+                     viewBox, and ignores clicks so the real <area> links underneath still work. -->
+                <svg class="map-shapes" viewBox="0 0 628 755" preserveAspectRatio="none">
+                    <!-- RECT: Alejos Falls -->
+                    <rect class="shape shape-rect" x="261" y="520" width="78" height="45" />
+                    <text x="300" y="513" text-anchor="middle">RECT</text>
+
+                    <!-- CIRCLE: TOPS Overlook -->
+                    <circle class="shape shape-circle" cx="520" cy="281" r="20" />
+                    <text x="520" y="253" text-anchor="middle">CIRCLE</text>
+
+
+                    <!-- POLY: Farmfinity Resort -->
+                    <polygon class="shape shape-poly" points="511,89 557,103 517,129" />
+                    <text x="528" y="78" text-anchor="middle">POLY</text>
+
+                    <!-- CIRCLE: Bontoc Dike -->
+                    <circle class="shape shape-circle" cx="590" cy="246" r="16" />
+                    <text x="590" y="222" text-anchor="middle">CIRCLE</text>
+
+                    <!-- CIRCLE: Ness Presso -->
+                    <circle class="shape shape-circle" cx="579" cy="276" r="12" />
+                    <text x="579" y="296" text-anchor="middle">CIRCLE</text>
+                    
+                    <circle class="shape shape-circle" cx="508" cy="360" r="15" />
+                    <text x="508" y="372" text-anchor="middle">CIRCLE</text>
+                </svg>
+
+                <!-- Photo pins: same coordinates as the <area> shapes above, shown as % of the
+                     628x755 image so they stay aligned however the image is scaled/resized. -->
+                <a href="alejos.html" target="_self" class="map-pin" style="left:47.77%; top:71.85%;">
+                    <span class="pin-label">Alejos Falls</span>
+                    <span class="pin-photo"><img src="alejos.jpg" alt="Alejos Falls"></span>
+                </a>
+
+                <a href="tops.html" target="_blank" class="map-pin" style="left:82.80%; top:37.22%;">
+                    <span class="pin-label">TOPS Overlook</span>
+                    <span class="pin-photo"><img src="tops3.jpg" alt="TOPS Overlook"></span>
+                </a>
+
+                <a href="farm.html" target="_self" class="map-pin" style="left:84.13%; top:14.17%;">
+                    <span class="pin-label">Farmfinity Resort</span>
+                    <span class="pin-photo"><img src="farmfinity.jpg" alt="Farmfinity Resort"></span>
+                </a>
+
+                <a href="dike.html" target="_blank" class="map-pin" style="left:93.95%; top:32.58%;">
+                    <span class="pin-label">Bontoc Dike</span>
+                    <span class="pin-photo"><img src="dike1.jpg" alt="Bontoc Dike"></span>
+                </a>
+
+                <a href="nesspresso.html" target="_self" class="map-pin" style="left:92.20%; top:36.56%;">
+                    <span class="pin-label">Ness Presso</span>
+                    <span class="pin-photo"><img src="nesspresso3.jpg" alt="Ness Presso"></span>
+                </a>
+            </div>
+
+            <p class="map-legend">
+                <span><img src="alejos.jpg" alt="">Alejos Falls</span>
+                <span><img src="tops3.jpg" alt="">TOPS Overlook</span>
+                <span><img src="farmfinity.jpg" alt="">Farmfinity Resort</span>
+                <span><img src="dike1.jpg" alt="">Bontoc Dike</span>
+                <span><img src="nesspresso3.jpg" alt="">Ness Presso</span>
+            </p>
+
+            <p class="shape-key">
+                <span><i class="k-rect"></i>rect — Alejos Falls</span>
+                <span><i class="k-circle"></i>circle — TOPS, Dike, Ness Presso</span>
+                <span><i class="k-poly"></i>poly — Farmfinity Resort</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- WORDS ABOUT HOME -->
+    <section>
+        <h2>Words About Home</h2>
+
+        <!-- BLOCKQUOTE (2nd example) -->
+        <blockquote>
+            "Bontoc may be small, but its rivers, falls, and coffee shops carry the warmth of home
+            in every corner."
+        </blockquote>
+
+        <!-- Q (2nd example) -->
+        <p>As locals say, <q>There is no view quite like the one from TOPS.</q></p>
+
+        <!-- ABBR (2nd example) -->
+        <p><abbr title="Local Government Unit">LGU</abbr> Bontoc helps serve and protect the people of the municipality.</p>
+    </section>
+
+    <!-- REFERENCE -->
+    <section>
+        <h2>Reference</h2>
+
+        <!-- CITE (2nd example) - pakisayran sa travel guide -->
+        <p>Information about Bontoc's tourist spots was based on the <cite>Southern Leyte Tourism</cite> travel guide.</p>
+
+        <!-- BDO LTR - normal nga direksyon sa text (left to right) -->
+        <h4><bdo dir="ltr">Bontoc, Southern Leyte</bdo></h4>
+        <!-- BDO RTL - baliktad nga direksyon sa text (right to left) -->
+        <h5><bdo dir="rtl">Bontoc, Southern Leyte</bdo></h5>
+
+        <hr>
+
+        <h4>Responsive View of TOPS (&lt;picture&gt;)</h4>
+        <p>This picture element swaps in a wider crop on larger screens and falls back to a smaller image on narrow screens:</p>
+        <!-- PICTURE/SOURCE - responsive nga hulagway, mag-usab depende sa size sa screen -->
+        <picture class="picture-frame">
+            <source media="(min-width: 650px)" srcset="tops3.jpg">
+            <source media="(min-width: 465px)" srcset="tops3.jpg">
+            <img src="tops3.jpg" alt="TOPS Overlook Point responsive view">
+        </picture>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+
+        <!-- ADDRESS - impormasyon sa kontak/lokasyon -->
+        <address>
+            Bontoc Tourism Office<br>
+            Municipal Hall, Bontoc<br>
+            Southern Leyte, Philippines
+        </address>
+
+        <p>
+            <a href="https://www.facebook.com/PIOBontocSouthernLeyte"
+               target="_blank"
+               title="Open LGU Official Facebook Page">
+                Open LGU Official Facebook Page
+            </a>
+        </p>
+    </section>
+
+    <footer>
+        <h6>
+            <strong>
+                My Hometown: Bontoc, Southern Leyte
+            </strong>
+        </h6>
+
+        <!-- ADDRESS (2nd example) - kontak info nga nabutang sa footer -->
+        <address>
+            Bontoc Tourism Office, Municipal Hall, Bontoc, Southern Leyte, Philippines
+        </address>
+
+        <small>Website created by a local resident to promote tourism and community pride.</small><br>
+        <small>© 2026 Bontoc Hometown Website</small>
+    </footer>
+
+</body>
+</html>
