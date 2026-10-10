@@ -1,76 +1,87 @@
 # My Hometown - Bontoc
 
-A simple static tourism website showcasing the municipality of Bontoc in Southern Leyte, Philippines. The project highlights the town's scenic attractions, local culture, and popular destinations through a polished landing page and linked spot pages.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3) ![Static Site](https://img.shields.io/badge/Type-Static%20Website-0A66C2?style=for-the-badge)
 
-## About the project
+A modern static tourism website that celebrates the beauty, culture, and attractions of Bontoc, Southern Leyte, Philippines. This project is designed as a welcoming hometown showcase with a clean layout, scenic imagery, and destination highlights.
 
-This website presents Bontoc as a destination for nature, adventure, and local tourism. It includes:
+## Description
 
-- A welcoming hero section and municipality overview
-- Featured tourist destinations such as TOPS, Alejos Falls, Bontoc Dike, Ness Presso, and Farmfinity Resort
-- Navigation to individual attraction pages
-- A map-based section for exploring local sites
-- A clean, responsive HTML/CSS design
+My Hometown - Bontoc is a front-end website that introduces visitors to the municipality through a visually engaging landing page and dedicated pages for notable tourist spots. It presents Bontoc as a destination for eco-tourism, scenic views, local food, and community-based travel experiences.
 
-## Project structure
+## Live URL
+
+- Local preview: http://localhost:8000
+- Deployed site: Add your GitHub Pages or hosting URL here
+
+## Features
+
+- Hero banner with welcoming hometown branding
+- Tourist spot highlights including TOPS, Alejos Falls, Bontoc Dike, Ness Presso, and Farmfinity Resort
+- Dedicated pages for each destination
+- Sticky navigation menu for easy browsing
+- Responsive layout for desktop and mobile screens
+- Scenic photography and local tourism-inspired design
+
+## Project Structure
 
 ```text
 .
-├── index.html          # Home page
-├── tops.html           # TOPS attraction page
+├── index.html          # Main landing page
+├── tops.html           # TOPS destination page
 ├── alejos.html         # Alejos Falls page
 ├── dike.html           # Bontoc Dike page
 ├── nesspresso.html     # Ness Presso page
 ├── farm.html           # Farmfinity Resort page
-├── logo.png            # Site logo
+├── logo.png            # Website logo
 ├── favicon.jpg         # Browser tab icon
 ├── cover.JPG           # Hero background image
-├── *.jpg               # Destination and gallery images
+├── *.jpg               # Tourism and gallery images
 ├── images/             # Additional image assets
-└── README.md           # Project documentation
+├── README.md           # Project documentation
+└── .git/               # Git metadata
 ```
 
-## Technologies used
+## Technologies Used
 
-- HTML
-- CSS
-- JavaScript (embedded or page-specific behavior where applicable)
+- HTML5
+- CSS3
 - Static image assets
+- Lightweight front-end styling and layout
 
-## How to run locally
+## How to Run
 
-Since this is a static website, you can view it in two easy ways:
+Because this is a static website, no build step or package installation is required.
 
 ### Option 1: Open directly
 
 Open `index.html` in your browser.
 
-### Option 2: Run a local web server
+### Option 2: Run a local server
 
-From the project folder, run:
+From the project directory, run:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open:
+Then visit:
 
 ```text
 http://localhost:8000
 ```
 
-## Features
+## Highlights of Bontoc Showcased
 
-- Responsive layout for desktop and mobile viewing
-- Sticky navigation menu
-- Tourist spot highlights
-- Local tourism branding and content for Bontoc
-- Linked destination pages with supporting visuals
+- Scenic viewpoints and nature destinations
+- Eco-tourism and outdoor adventure locations
+- Local businesses and café culture
+- Agritourism and family-friendly attractions
+- Cultural identity and hometown pride
 
 ## License
 
-This project is intended for personal or educational use. If you plan to use it publicly, you may want to add a formal license that fits your intended usage.
+This project is intended for personal or educational use. If you plan to publish or reuse it publicly, consider adding a license that matches your intended usage.
 
 ## Notes
 
-This is a front-end static website project and does not require a database or build step. It is best suited for showcasing a hometown or tourism concept in a lightweight, easily deployable format.
+This repository is a lightweight static front-end project designed for showcasing a hometown and tourism concept. It is easy to deploy on GitHub Pages, Netlify, or any static hosting service.
